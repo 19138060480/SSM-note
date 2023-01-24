@@ -223,7 +223,7 @@ This is Test TXT	MyNemeIsFei Halo!!
 - 第二步： git add . 把所有文件上传至暂存区
 - 第三步： git commit -m "描述" 把暂存区文件上传至本地库,双引号里面的内容是本次提交的注释，但是必须填写
 - 第四步： **git branch -M main**  把分支改名为main
-- 第五步： ' **git remote add origin** 链接 ' 链接仓库地址
+- 第五步： ' **git remote add origin 链接** ' 链接仓库地址  （origin只相当于一个别名，运行git remote –v或者查看.git/config可以看到origin的含义）
 - 第六步： ‘ **git push -u origin main** ’ 上传到仓库
 
 ## 远程连接
@@ -254,3 +254,109 @@ This is Test TXT	MyNemeIsFei Halo!!
 ​        git add [file name]
 ​        git commit -m "message"
 ​        git push origin [分支名]
+
+# IDEA配置Git
+
+## 设置git.exe路径
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123154034362.png" alt="image-20230123154034362" style="zoom:40%;" />
+
+## 在idea中完成git初始化（git init）
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123163201421.png" alt="image-20230123163201421" style="zoom:40%;" />
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123163348806.png" alt="image-20230123163348806" style="zoom:50%;" />
+
+完成初始化以后，会发现我们写的文件都变成了**红颜色**
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123163453053.png" alt="image-20230123163453053" style="zoom:50%;" />
+
+此时的状态是未提交到暂存区，也没有commit到本地库中
+
+## 将文件提交到暂存区和本地库
+
+### 提交到暂存区
+
+单个文件添加：
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123163947526.png" alt="image-20230123163947526" style="zoom:40%;" />
+
+很显然，单个文件添加的话如果文件过多，效率就太慢了，所以我们可以直接在这个目录上右键进行添加：
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123164157092.png" alt="image-20230123164157092" style="zoom:40%;" />
+
+添加后，稍等片刻即可完成，完成后项目文件全部变成绿色
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123164410647.png" alt="image-20230123164410647" style="zoom:40%;" />
+
+### 提交到本地库
+
+完成提交到暂存区后，我们就可以把项目提交到本地库中了
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123164540776.png" alt="image-20230123164540776" style="zoom:40%;" />
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123165619965.png" alt="image-20230123165619965" style="zoom:40%;" />
+
+提交后文件会恢复成正常颜色
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230123165747624.png" alt="image-20230123165747624" style="zoom:33%;" />
+
+## 在idea中切换版本
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124094030614.png" alt="image-20230124094030614" />
+
+## IDEA中分支
+
+### 1.创建分支
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124120105414.png" alt="image-20230124120105414" style="zoom:50%;" />
+
+### 2.切换分支
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124120353873.png" alt="image-20230124120353873" style="zoom:50%;" />
+
+### 3.合并分支
+
+#### Ⅰ、正常合并
+
+在hot-fix分支上，删了一行没有用的导包，切换到master分支，进行合并
+
+在master分支上进行如下操作
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124121217521.png" alt="image-20230124121217521" style="zoom:50%;" />
+
+合并前：
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124121251319.png" alt="image-20230124121251319" style="zoom:50%;" />
+
+合并后：
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124121314058.png" alt="image-20230124121314058" style="zoom:50%;" />
+
+#### Ⅱ、合并冲突
+
+在hot-fix分支的main方法下写三个sout，并提交到本地库
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124122313940.png" alt="image-20230124122313940" style="zoom:50%;" />
+
+在master分支的main方法写下三个sout，并提交到本地库
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124122545019.png" alt="image-20230124122545019" style="zoom:50%;" />
+
+此时两个分支都向前走了一步，我们在进行合并必然会出现合并冲突
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124122649659.png" alt="image-20230124122649659" style="zoom:50%;" />
+
+在master分支上对hot-fix进行合并，步骤与正常合并相同
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124122759510.png" alt="image-20230124122759510" style="zoom:50%;" />
+
+会检测到合并冲突，选择手动合并
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124123310849.png" alt="image-20230124123310849" style="zoom:50%;" />
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124123435758.png" alt="image-20230124123435758" style="zoom:40%;" />
+
+合并后分支长这样：
+
+<img src="D:\JAVALearning\SSM框架\SSM框架笔记(含Springboot+MP)\assets\image-20230124123700629.png" alt="image-20230124123700629" style="zoom:50%;" />
